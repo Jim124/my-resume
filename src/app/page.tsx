@@ -1,5 +1,13 @@
 import Image from 'next/image';
 
-export default function Home() {
-  return <div className='p-5'>HomePage</div>;
+import { UserButton } from '@clerk/nextjs';
+import { connectMongoDB } from '@/config/db';
+
+export default async function Home() {
+  await connectMongoDB();
+  return (
+    <div className='p-5'>
+      <UserButton />
+    </div>
+  );
 }
