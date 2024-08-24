@@ -1,10 +1,11 @@
 import Image from 'next/image';
 
 import { UserButton } from '@clerk/nextjs';
-import { connectMongoDB } from '@/config/db';
+import { getCurrentUserFromDB } from '@/server-action/users';
 
 export default async function Home() {
-  await connectMongoDB();
+  const userResponse = await getCurrentUserFromDB();
+  if (!userResponse) return <div>there was an error</div>;
   return (
     <div className='p-5'>
       <UserButton />
