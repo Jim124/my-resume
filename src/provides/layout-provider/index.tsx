@@ -1,8 +1,9 @@
 'use client';
+import AdminMenu from '@/components/AdminMenu';
 import Spinner from '@/components/Spinner';
 import { getCurrentUserFromDB } from '@/server-action/users';
 import useGlobalStore, { IUser } from '@/store/user-store';
-import { UserButton } from '@clerk/nextjs';
+import { UserButton, SignedIn } from '@clerk/nextjs';
 import { usePathname, useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 
@@ -13,6 +14,9 @@ function LayoutProvider({ children }: { children: React.ReactNode }) {
   const router = useRouter();
   const isSignInOrSignUp =
     !pathName.includes('/sign-in') && !pathName.includes('/sign-up');
+
+  // restrict admin
+  const isAdmin = pathName.includes('/admin');
   useEffect(
     function () {
       async function getCurrentUser() {
@@ -32,9 +36,16 @@ function LayoutProvider({ children }: { children: React.ReactNode }) {
         getCurrentUser();
       }
     },
-    [currentUserData]
+    [pathName]
   );
 
+  if (isAdmin && currentUserData?.role === 'user' && !isLadong) {
+    return (
+      <div className=' text-sm text-gray-500 flex justify-center items-center h-screen '>
+        You are not authorized to access this page
+      </div>
+    );
+  }
   if (!isSignInOrSignUp) {
     return <div>{children}</div>;
   }
@@ -54,15 +65,19 @@ function LayoutProvider({ children }: { children: React.ReactNode }) {
           My Resume
         </h1>
         <div className='flex gap-5 items-center'>
-          {currentUserData && (
+          {currentUserData?.role === 'admin' ? (
+            <AdminMenu />
+          ) : (
             <h1
               className='text-sm text-white cursor-pointer'
               onClick={() => router.push('/profile')}
             >
-              {currentUserData.name}
+              {currentUserData?.name}
             </h1>
           )}
-          <UserButton />
+          <SignedIn>
+            <UserButton />
+          </SignedIn>
         </div>
       </div>
       <div className='p-5'>{children}</div>

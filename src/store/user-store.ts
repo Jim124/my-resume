@@ -6,6 +6,7 @@ export interface IUser {
   email: string;
   profilePictureUrl: string;
   profileDataForResume: any;
+  role: string;
 }
 
 interface UserState {

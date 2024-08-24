@@ -34,12 +34,15 @@ export const getCurrentUserFromDB = async (): Promise<UserResponse> => {
       };
       return response;
     }
+    const isFirstAccount = (await UserModel.countDocuments()) === 0;
+    const role = isFirstAccount ? 'admin' : 'user';
     const userObj = {
       clerkUserId,
       name,
       email: clerkUser?.emailAddresses[0].emailAddress,
       profilePictureUrl: clerkUser?.imageUrl,
       profileDataForResume: {},
+      role,
     };
     const newUser = await UserModel.create(userObj);
     const result: UserResponse = {
