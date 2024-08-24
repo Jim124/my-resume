@@ -27,6 +27,11 @@ function ProfilePage() {
     const userId = currentUserData?._id as string;
     try {
       setLoading(true);
+      ['skills', 'education', 'experience'].forEach((key) => {
+        if (!values[key]) {
+          values[key] = currentUserData?.profileDataForResume[key] || [];
+        }
+      });
       const updateProfile = {
         profileDataForResume: values,
       };
