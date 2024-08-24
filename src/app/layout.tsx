@@ -3,6 +3,7 @@ import './globals.css';
 
 import ThemeProvider from '@/provides/theme-provider';
 import { ClerkProvider } from '@clerk/nextjs';
+import LayoutProvider from '@/provides/layout-provider';
 
 export const metadata: Metadata = {
   title: 'My-resumes',
@@ -18,7 +19,9 @@ export default function RootLayout({
     <ClerkProvider>
       <html lang='en'>
         <body>
-          <ThemeProvider>{children}</ThemeProvider>
+          <ThemeProvider>
+            <LayoutProvider> {children}</LayoutProvider>
+          </ThemeProvider>
         </body>
       </html>
     </ClerkProvider>

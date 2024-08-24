@@ -30,6 +30,14 @@
   border-radius: 2px !important;
 }
 
+.ant-form-item {
+  margin-bottom: 0 !important;
+}
+
+.ant-form-item-label {
+  padding: 0 !important;
+}
+
 
 @layer {
   .auth-container{
