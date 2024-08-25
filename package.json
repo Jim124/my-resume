@@ -10,7 +10,9 @@
   },
   "dependencies": {
     "@clerk/nextjs": "^5.3.3",
+    "@uiw/react-codemirror": "^4.23.0",
     "antd": "^5.20.2",
+    "dayjs": "^1.11.13",
     "firebase": "^10.13.0",
     "lucide-react": "^0.435.0",
     "mongoose": "^7.0.5",

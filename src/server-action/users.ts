@@ -5,13 +5,6 @@ import UserModel from '@/models/userModel';
 import { IUser } from '@/store/user-store';
 import { currentUser } from '@clerk/nextjs/server';
 
-type User = {
-  _id: string;
-  name: string;
-  email: string;
-  profilePictureUrl: string;
-};
-
 type UserResponse = {
   message: string;
   data: IUser | null;

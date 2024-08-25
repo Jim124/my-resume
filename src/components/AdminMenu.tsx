@@ -1,5 +1,3 @@
-'use client';
-
 import Link from 'next/link';
 import type { MenuProps } from 'antd';
 import { Button, Dropdown } from 'antd';

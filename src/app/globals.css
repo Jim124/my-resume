@@ -38,6 +38,11 @@
   padding: 0 !important;
 }
 
+table {
+  border: 1px solid #2c1d79 !important;
+  margin-top:20px;
+}
+
 
 @layer {
   .auth-container{
