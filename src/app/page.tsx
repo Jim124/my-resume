@@ -10,7 +10,7 @@ export default async function Home() {
   return (
     <>
       <Header />
-      <div className='flex flex-col gap-5 items-start mt-5'>
+      <div className='flex flex-col gap-5 items-start mt-5 p-5'>
         <div>
           <h1 className='text-xl font-bold text-primary'>Templates</h1>
           <span className='text-gray-500 text-sm'>
@@ -27,8 +27,8 @@ export default async function Home() {
                     src={url}
                     alt={template.name}
                     className='w-full h-96 rounded object-cover'
-                    width={192}
-                    height={192}
+                    width={230}
+                    height={210}
                     priority
                   />
                   {/* <img src={template.thumbnail} className='w-full h-96' /> */}

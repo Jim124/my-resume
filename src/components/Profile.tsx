@@ -48,7 +48,7 @@ function Profile({ user }: { user: IUser }) {
     }
   };
   return (
-    <div>
+    <div className='p-5'>
       <h1 className='text-lg font-bold uppercase text-primary'>Profile</h1>
       <Form
         layout='vertical'

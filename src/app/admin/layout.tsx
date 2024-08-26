@@ -4,7 +4,7 @@ function layout({ children }: { children: React.ReactNode }) {
   return (
     <>
       <Header />
-      <div className='mt-5'>{children}</div>
+      <div className='mt-5 p-5'>{children}</div>
     </>
   );
 }
