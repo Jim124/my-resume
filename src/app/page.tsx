@@ -22,13 +22,14 @@ export default async function Home() {
             const url = template.thumbnail;
             return (
               <Link key={template._id} href={`/templates/${template._id}`}>
-                <div className='border border-gray-200 border-solid hover:border-gray-400 relative'>
+                <div className='border border-gray-200 border-solid hover:border-gray-400 relative rounded'>
                   <Image
                     src={url}
                     alt={template.name}
                     className='w-full h-96 rounded object-cover'
                     width={192}
                     height={192}
+                    priority
                   />
                   {/* <img src={template.thumbnail} className='w-full h-96' /> */}
                 </div>
