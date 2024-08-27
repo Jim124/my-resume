@@ -1,6 +1,8 @@
 import { Form, Input } from 'antd';
+import { useProgressContext } from '@/context/ProgressContext';
 
 function Basic() {
+  const { setProgressNum } = useProgressContext();
   return (
     <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5'>
       <Form.Item name='name' label='Name' required>
@@ -25,7 +27,7 @@ function Basic() {
       </div>
       <div className='col-span-4'>
         <Form.Item name='address' label='Address' required>
-          <Input.TextArea rows={2} />
+          <Input.TextArea rows={2} onChange={() => setProgressNum(25)} />
         </Form.Item>
       </div>
     </div>

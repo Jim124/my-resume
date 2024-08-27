@@ -1,7 +1,10 @@
+import { useProgressContext } from '@/context/ProgressContext';
 import { Form, Input, Button } from 'antd';
 import { Trash2 } from 'lucide-react';
 
 function Experience() {
+  const { setProgressNum } = useProgressContext();
+
   return (
     <div>
       <Form.List name='experience'>
@@ -9,7 +12,13 @@ function Experience() {
           return (
             <div>
               <div className='flex gap-5 items-center mb-5'>
-                <Button size='small' onClick={() => add()}>
+                <Button
+                  size='small'
+                  onClick={() => {
+                    add();
+                    setProgressNum(100);
+                  }}
+                >
                   Add experience
                 </Button>
               </div>
@@ -36,10 +45,15 @@ function Experience() {
                     <Form.Item
                       label='Start Date'
                       name={[field.name, 'startDate']}
+                      required
                     >
                       <Input type='date' />
                     </Form.Item>
-                    <Form.Item label='End Date' name={[field.name, 'endDate']}>
+                    <Form.Item
+                      label='End Date'
+                      name={[field.name, 'endDate']}
+                      required
+                    >
                       <Input />
                     </Form.Item>
                     <div className='col-span-4 flex gap-5 items-end'>
@@ -52,7 +66,10 @@ function Experience() {
                       </Form.Item>
                       <Button
                         className='w-max'
-                        onClick={() => remove(field.name)}
+                        onClick={() => {
+                          remove(field.name);
+                          setProgressNum(75);
+                        }}
                       >
                         <Trash2 size={16} />
                       </Button>

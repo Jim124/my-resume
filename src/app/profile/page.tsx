@@ -1,5 +1,6 @@
 import Header from '@/components/Header';
 import Profile from '@/components/Profile';
+import { ProgressContextProvider } from '@/context/ProgressContext';
 import { getCurrentUserFromDB } from '@/server-action/users';
 import { redirect } from 'next/navigation';
 
@@ -10,7 +11,9 @@ async function ProfilePage() {
   return (
     <>
       <Header />
-      <Profile user={user} />
+      <ProgressContextProvider>
+        <Profile user={user} />
+      </ProgressContextProvider>
     </>
   );
 }

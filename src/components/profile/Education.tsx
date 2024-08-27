@@ -1,7 +1,9 @@
-import { Form, Input, Button } from 'antd';
+import { useProgressContext } from '@/context/ProgressContext';
+import { Form, Input, Button, message } from 'antd';
 import { Trash2 } from 'lucide-react';
 
 function Education() {
+  const { setProgressNum } = useProgressContext();
   return (
     <div>
       <Form.List name='education'>
@@ -9,7 +11,13 @@ function Education() {
           return (
             <div>
               <div className='flex gap-5 items-center mb-5'>
-                <Button size='small' onClick={() => add()}>
+                <Button
+                  size='small'
+                  onClick={() => {
+                    add();
+                    setProgressNum(50);
+                  }}
+                >
                   Add education
                 </Button>
               </div>
@@ -32,7 +40,10 @@ function Education() {
                     </Form.Item>
                     <Button
                       className='w-max'
-                      onClick={() => remove(field.name)}
+                      onClick={() => {
+                        remove(field.name);
+                        setProgressNum(25);
+                      }}
                     >
                       <Trash2 size={16} />
                     </Button>

@@ -27,7 +27,7 @@ function Experience() {
                       <Input />
                     </Form.Item>
                     <Form.Item
-                      label='Rolw'
+                      label='Role'
                       name={[field.name, 'role']}
                       required
                     >
@@ -36,10 +36,15 @@ function Experience() {
                     <Form.Item
                       label='Start Date'
                       name={[field.name, 'startDate']}
+                      required
                     >
                       <Input type='date' />
                     </Form.Item>
-                    <Form.Item label='End Date' name={[field.name, 'endDate']}>
+                    <Form.Item
+                      label='End Date'
+                      name={[field.name, 'endDate']}
+                      required
+                    >
                       <Input />
                     </Form.Item>
                     <div className='col-span-4 flex gap-5 items-end'>
@@ -47,6 +52,7 @@ function Experience() {
                         label='Roles and Responsibilities'
                         name={[field.name, 'rolesAndResponsibilities']}
                         className='flex-1'
+                        required
                       >
                         <Input.TextArea />
                       </Form.Item>

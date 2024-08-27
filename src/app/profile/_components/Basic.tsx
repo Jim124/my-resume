@@ -1,13 +1,15 @@
 import { Form, Input } from 'antd';
 
-function Basic() {
+import { ProgressProp } from '@/utils/types';
+
+function Basic({ setProgramNum }: ProgressProp) {
   return (
     <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5'>
       <Form.Item name='name' label='Name' required>
         <Input />
       </Form.Item>
       <Form.Item name='email' label='Email' required>
-        <Input />
+        <Input onChange={() => setProgramNum(10)} />
       </Form.Item>
       <Form.Item name='phone' label='Phone' required>
         <Input />

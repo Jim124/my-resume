@@ -52,8 +52,6 @@ export const updateUserProfile = async ({
   userId: string;
   data: any;
 }) => {
-  console.log(userId);
-  console.log(data);
   try {
     const response = await UserModel.findByIdAndUpdate(userId, data);
     return {
