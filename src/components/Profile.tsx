@@ -47,9 +47,9 @@ function Profile({ user }: { user: IUser }) {
         }
       });
       values.progressNum = progressNum;
-      const validateFields = validateFieldSchema(profileResumeSchema, values);
+      // const validateFields = validateFieldSchema(profileResumeSchema, values);
       const updateProfile = {
-        profileDataForResume: validateFields,
+        profileDataForResume: values,
       };
       const response = await updateUserProfile({ userId, data: updateProfile });
       if (response.success) {

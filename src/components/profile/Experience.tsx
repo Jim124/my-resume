@@ -62,7 +62,7 @@ function Experience() {
                         name={[field.name, 'rolesAndResponsibilities']}
                         className='flex-1'
                       >
-                        <Input.TextArea />
+                        <Input.TextArea rows={5} />
                       </Form.Item>
                       <Button
                         className='w-max'
