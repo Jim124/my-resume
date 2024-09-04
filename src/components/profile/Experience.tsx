@@ -54,7 +54,7 @@ function Experience() {
                       name={[field.name, 'endDate']}
                       required
                     >
-                      <Input />
+                      <Input type='date' />
                     </Form.Item>
                     <div className='col-span-4 flex gap-5 items-end'>
                       <Form.Item
